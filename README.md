@@ -22,5 +22,5 @@ $ python cv.py
 
 ## Bonus Question: Fining tuning LR and SVM
 ```
-$ python bonus_lr_svm.py
+$ python bonus_lr_svm_fine_tune.py
 ```
