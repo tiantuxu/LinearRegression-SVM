@@ -198,11 +198,14 @@ def get_accuracy_svm(w, trainingSet, testSet):
     return test_accuracy
 
 
-# In[6]:
+# In[7]:
 
 
-trainingSet = pd.read_csv(trainingDataFilename)
-testSet = pd.read_csv(testDataFilename)
+training = pd.read_csv(trainingDataFilename)
+test = pd.read_csv(testDataFilename)
+
+trainingSet=((training-training.min())/(training.max()-training.min()))
+testSet=((test-test.min())/(test.max()-test.min()))
 
 regularization = [0.01, 0.005, 0.002, 0.001, 0.0005, 0.0002, 0.0001]
 step_size = [0.01, 0.005, 0.002, 0.001, 0.0005, 0.0002, 0.0001]
@@ -222,6 +225,9 @@ for r in regularization:
         
 get_accuracy_lr(w_max, trainingSet, testSet)
 print 'Have max test accuracy:', '%.2f' % max_accuracy, 'when regularization =', r_max, 'and step_size =', s
+
+trainingSet = pd.read_csv(trainingDataFilename)
+testSet = pd.read_csv(testDataFilename)
 max_accuracy = 0.0
 for r in regularization:
     for s in step_size:
@@ -234,12 +240,6 @@ for r in regularization:
             w_max = w
 get_accuracy_svm(w_max, trainingSet, testSet)
 print 'Have max test accuracy:', '%.2f' % max_accuracy, 'when regularization =', r_max, 'and step_size =', s
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:
