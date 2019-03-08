@@ -2,7 +2,7 @@
 
 ## Question 1: Preprocessing
 ```
-$ python preprocess-assg3.py dating-full.csv dating.csv
+$ python preprocess-assg3.py
 ```
 
 ## Question 2: Implement Logistic Regression and Linear SVM
